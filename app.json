@@ -1,0 +1,35 @@
+{
+  "name": "Nantucket",
+  "description": "A Heroku-ready Phoenix Project",
+  "keywords": [
+    "elixir",
+    "phoenix",
+    "erlang"
+  ],
+  "website": "https://github.com/judetucker/nantucket",
+  "repository": "https://github.com/judetucker/nantucket",
+  "logo": "https://small-sharp-tool.com/logo.svg",
+  "scripts": {
+    "postdeploy": "POOL_SIZE=2 mix phx.digest"
+  },
+  "env": {
+    "SECRET_KEY_BASE": {
+      "description": "The base secret key that will be used in production.",
+      "generator": "secret"
+    },
+    "POOL_SIZE": {
+      "description": "The number of processes to run.",
+      "value": "18"
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/HashNuke/heroku-buildpack-elixir"
+    }
+  ],
+}
